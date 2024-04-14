@@ -15,6 +15,7 @@ django=4.1=py310hca03da5_0
 django-bootstrap5=24.1=pyhd8ed1ab_0
 django-crispy-forms=2.1=pyhd8ed1ab_0
 django-environ=0.11.2=pyhd8ed1ab_0
+django-leaflet=0.29.1=pyhd8ed1ab_0
 expat=2.5.0=h313beb8_0
 font-ttf-dejavu-sans-mono=2.37=hd3eb1b0_0
 font-ttf-inconsolata=2.001=hcb22688_0
