@@ -74,6 +74,7 @@ numpy=1.24.2=py310h3d2048e_0
 openjpeg=2.5.0=hbc2ba62_2
 openssl=1.1.1w=h1a28f6b_0
 pcre2=10.40=hb34f9b4_0
+pillow=10.3.0=pypi_0
 pip=24.0=pypi_0
 pixman=0.40.0=h1a28f6b_0
 poppler=23.01.0=h9564b9f_0
