@@ -74,7 +74,7 @@ numpy=1.24.2=py310h3d2048e_0
 openjpeg=2.5.0=hbc2ba62_2
 openssl=1.1.1w=h1a28f6b_0
 pcre2=10.40=hb34f9b4_0
-pip=23.3.1=py310hca03da5_0
+pip=24.0=pypi_0
 pixman=0.40.0=h1a28f6b_0
 poppler=23.01.0=h9564b9f_0
 poppler-data=0.4.11=hca03da5_1
@@ -84,14 +84,12 @@ psycopg2=2.9.3=py310hfc29c8b_2
 python=3.10.0=h70c1b39_3_cpython
 python_abi=3.10=4_cp310
 readline=8.2=h1a28f6b_0
-setuptools=68.2.2=py310hca03da5_0
 sqlite=3.41.2=h80987f9_0
 sqlparse=0.4.4=py310hca03da5_0
 tiledb=2.13.2=hc7ac4c9_0
 tk=8.6.12=hb8d0fd4_0
 tzdata=2024a=h04d1e81_0
 uriparser=0.9.7=h80987f9_0
-wheel=0.41.2=py310hca03da5_0
 xerces-c=3.2.4=h627aa08_1
 xz=5.4.6=h80987f9_0
 zlib=1.2.13=h53f4e23_5
