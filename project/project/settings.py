@@ -51,6 +51,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'django.contrib.gis', # Spatial Database
+    
+    # Leaflet
+    'leaflet',
+
+    # Crispy Form
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -135,7 +142,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = "assets/static"
+# STATIC_ROOT = "assets/static"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'../assets/static')
+]
 MEDIA_URL = 'media/'
 MEDIA_ROOT = "assets/media"
 
@@ -151,3 +161,14 @@ if os.name == 'nt':
         VENV_BASE, 'Lib\\site-packages\\osgeo') + ';' + os.environ['PATH']
     os.environ['PROJ_LIB'] = os.path.join(
         VENV_BASE, 'Lib\\site-packages\\osgeo\\data\\proj') + ';' + os.environ['PATH']
+
+# LEAFLET SETTINGS
+LEAFLET_CONFIG = {
+    # conf here
+    'DEFAULT_CENTER': (-6.1950,106.5528),
+    'DEFAULT_ZOOM': 11,
+    'MIN_ZOOM': 3,
+    'MAX_ZOOM': 18,
+    # 'DEFAULT_PRECISION': 6,
+    'TILES': 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+}
