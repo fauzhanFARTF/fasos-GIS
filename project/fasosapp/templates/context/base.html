@@ -15,7 +15,8 @@
 
     {% block head %} {% endblock %}
   </head>
-  <body>
+  <body class="container-fluid">
+    {% include 'context/navbar.html' %}
     {% block body %} {% endblock %}
 
       <!-- BOOSTRAP CDN
