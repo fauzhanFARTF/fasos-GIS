@@ -154,4 +154,5 @@ cython_debug/
 # PYTHON ENVIRONMENT
 fasos-env
 noted.txt
-static
+bootstrap-5.2.3
+leaflet-1.9.4
