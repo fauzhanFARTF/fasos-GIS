@@ -18,12 +18,13 @@ from django.urls import path
 from fasosapp.views import home
 from django.conf import settings
 from django.conf.urls.static import static
-from fasosapp.views import home , faskes_api
+from fasosapp.views import home , faskes_api, custom_api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('api/faskes-map-api/', faskes_api, name='faskes_api')
+    path('api/faskes-map-api/', faskes_api, name='faskes_api'),
+    path('api/custom-api/', custom_api, name='custom_api')
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

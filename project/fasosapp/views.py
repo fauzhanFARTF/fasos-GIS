@@ -5,7 +5,7 @@ from django.core.serializers import serialize  # melakukan serialisasi menghasil
 # Model
 from .models import MedicalFacility  # memanggil model
 # Http
-from django.http import HttpResponse  # menghasilkan response dari api
+from django.http import HttpResponse, JsonResponse  # menghasilkan response dari api
 
 
 # Create your views here.
@@ -16,3 +16,11 @@ def home(request):
 def faskes_api(request):
     data = serialize('geojson', MedicalFacility.objects.all())
     return HttpResponse(data, content_type="json") 
+# Custom API
+def custom_api(request):
+    data = {
+        'nama' : 'Fauzan',
+        'usia' : '33 Tahun',
+        'perempuan' : 'False'
+    }
+    return JsonResponse(data)
