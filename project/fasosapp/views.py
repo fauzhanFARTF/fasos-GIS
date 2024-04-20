@@ -26,8 +26,20 @@ def custom_api(request):
     return JsonResponse(data)
 # Custom Map API
 def custom_faskes_api(request):
-    features = []
+    # Mengambil data dari model
+    features = {
+        'type': 'FeatureCollection',
+        'crs' : {
+            'type': 'name',
+            'properties': {
+                'name' : 'EPSG:4326'
+            },
+        },
+        'features' : []
+    }
     model = MedicalFacility.objects.all()
+    
+    # Mengambil data dari model
     for item in model:
         # print(item)
         # print(item.nama)
@@ -45,6 +57,6 @@ def custom_faskes_api(request):
                     'status' : item.status
                 },
         }
-        features.append(feature)
+        features['features'].append(feature) # Menambahkan feature ke dalam features
     print(features)
     return JsonResponse(features, safe=False)
