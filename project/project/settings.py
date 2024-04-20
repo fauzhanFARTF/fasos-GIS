@@ -58,6 +58,12 @@ INSTALLED_APPS = [
     # Crispy Form
     "crispy_forms",
     "crispy_bootstrap5",
+    
+    # Django Rest Framework
+    'rest_framework',
+    
+    # djangorestframework-gis
+    'rest_framework_gis',
 ]
 
 MIDDLEWARE = [
