@@ -32,10 +32,19 @@ def custom_faskes_api(request):
         print(item)
         print(item.nama)
         feature = {
-            'nama' : item.nama,
-            'jenis' : item.jenis,
-            'tingkatan' : item.tingkatan,
-            'status' : item.status
+            "types" :"Feature",
+            "geometry" :
+                {
+                    "type"  : "point",
+                    "coordinates":item.location.json
+                },
+            "properties" : 
+                {
+                    'nama' : item.nama,
+                    'jenis' : item.jenis,
+                    'tingkatan' : item. tingkatan,
+                    'status' : item.status
+                },
         }
         features.append(feature)
     print(features)
