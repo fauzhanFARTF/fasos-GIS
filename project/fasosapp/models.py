@@ -11,6 +11,12 @@ class MedicalFacility(models.Model) :
         ('Apotik', 'Apotik')
     ]
     
+    SPESIFIC_CHOICES =[
+        ('Rumah Sakit Umum','Rumah Sakit Umum'),
+        ('Rumah Sakit Khusus','Rumah Sakit Khusus'),
+        ('-', '-')
+    ]
+    
     STATUS_CHOICES = [
         ('Perencanaan/Pengajuan', 'Perencanaan/Pengajuan'),
         ('Dalam Masa Peninjauan', 'Dalam Masa Peninjauan'),
@@ -22,9 +28,11 @@ class MedicalFacility(models.Model) :
     ]
     
     LEVEL_CHOICES = [
-        ('Fasilitas Kesehatan Tingkat 1', 'Fasilitas Kesehatan Tingkat 1'),
-        ('Fasilitas Kesehatan Tingkat 2', 'Fasilitas Kesehatan Tingkat 2'),
-        ('Fasilitas Kesehatan Tingkat 3', 'Fasilitas Kesehatan Tingkat 3')
+        ('Kelas A', 'Kelas A'),
+        ('Kelas B', 'Kelas B'),
+        ('Kelas C', 'Kelas C'),
+        ('Belum Mengisi Tingkatan', 'Belum Mengisi Tingkatan'),
+        ('-', '-')
     ]
     
     DAYS_CHOICES = [
@@ -33,14 +41,25 @@ class MedicalFacility(models.Model) :
         ('Sabtu - Minggu', 'Sabtu - Minggu')
     ]
     
+    OWNERSHIP_STATUS_CHOICES = [
+        ('Dikelola Pemerintah', 'Dikelola Pemerintah'),
+        ('Dikelola Swasta', 'Dikelola Swasta'),
+        ('Dikelola Organisasi Sosial', 'Dikelola Organisasi Sosial'),
+        ('Belum Mengisi Penyelenggara', 'Belum Mengisi Penyelenggara'),
+        ('-', '-')
+    ]
+    
+    koderumahsakit = models.CharField(max_length=10)
     nama = models.CharField(max_length=50)
-    jenis = models.CharField(max_length=30, choices=TYPE_CHOICES, default='Rumah Sakit')
-    tingkatan = models.CharField(max_length=50, choices=LEVEL_CHOICES)
+    tipe = models.CharField(max_length=50, choices=TYPE_CHOICES, default='Rumah Sakit')
+    jenis = models.CharField(max_length=50, choices=SPESIFIC_CHOICES, default='Rumah Sakit Umum')
+    tingkatan = models.CharField(max_length=50, choices=LEVEL_CHOICES, default='Belum Mengisi Tingkatan')
+    kepemilikan = models.CharField(max_length=50, choices=OWNERSHIP_STATUS_CHOICES, default='Belum Mengisi Penyelenggara')
     alamat = models.TextField(max_length=255)
     no_telp = models.CharField(max_length=50)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Perencanaan/Pengajuan')
     # beroperasi = models.BooleanField(default=False)
-    hari_beroperasi = models.CharField(max_length=50, choices=DAYS_CHOICES)
+    hari_beroperasi = models.CharField(max_length=50, choices=DAYS_CHOICES, default='Setiap Hari')
     jam_beroperasi = models.CharField(max_length=50)
     location = models.PointField(srid=4326, spatial_index=True)
     photo = models.ImageField(upload_to='medical_facility')
