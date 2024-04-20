@@ -63,20 +63,49 @@
                     onEachFeature: function(feature, Layer) {
                         console.log(feature.properties)
                         // Layer.bindPopup(feature.properties.nama)
-                        Layer.bindPopup(
-                            `
-                                <h5> ${feature.properties.nama}</h5>
-                                <ul>
-                                    <li> Jenis : ${feature.properties.jenis}</li>
-                                    <li> Tingkatan : ${feature.properties.tingkatan}</li>
-                                    <li> Alamat : ${feature.properties.alamat}</li>
-                                    <li> No Telpon : ${feature.properties.alamat}</li>
-                                    <li> Status : ${feature.properties.status}</li>
-                                    <li> Hari Beroperasi : ${feature.properties.status}</li>
-                                    <li> Jam Beroperasi : ${feature.properties.jam_beroperasi}</li
-                                </ul>
-                            `
-                        )
+                        const popupContent =
+                        `
+                            <h5 class = "text-primary"> ${feature.properties.nama}</h5>
+                            <div class="container">
+                                <img src="media/${feature.properties.photo}" width = "290px" height="150px">
+                                <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Properti</th>
+                                        <th>Keterangan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Jenis </td>
+                                        <td>${feature.properties.jenis}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tingkatan </td>
+                                        <td>${feature.properties.tingkatan}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>${feature.properties.alamat}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>No Telepon</td>
+                                        <td>${feature.properties.no_telp}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>${feature.properties.status}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hari Beroperasi</td>
+                                        <td>${feature.properties.hari_beroperasi}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jam Beroperasi</td>
+                                        <td>${feature.properties.jam_beroperasi}</td>
+                                    </tr>
+                        `
+                        Layer.bindPopup(popupContent);
                     }
                 }).addTo(map)
 
