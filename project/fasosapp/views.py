@@ -6,7 +6,7 @@ from django.core.serializers import serialize  # melakukan serialisasi menghasil
 from .models import MedicalFacility  # memanggil model
 # Http
 from django.http import HttpResponse, JsonResponse  # menghasilkan response dari api
-
+import ast # untuk mengubah string menjadi dictionary
 
 # Create your views here.
 # View
@@ -29,14 +29,13 @@ def custom_faskes_api(request):
     features = []
     model = MedicalFacility.objects.all()
     for item in model:
-        print(item)
-        print(item.nama)
+        # print(item)
+        # print(item.nama)
         feature = {
             "types" :"Feature",
             "geometry" :
                 {
-                    "type"  : "point",
-                    "coordinates":item.location.json
+                    "geometry": ast.literal_eval(item.location.json),
                 },
             "properties" : 
                 {
