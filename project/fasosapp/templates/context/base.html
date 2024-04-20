@@ -58,8 +58,8 @@
               fetch('{% url "standart_faskes_api" %}')
               .then(response => response.json())
               .then(function(json){
-                  console.log(json)
-                  L.geoJSON(json).addTo(map)
+                console.log(json)
+                L.geoJSON(json).bindPopup('pop up').addTo(map)
               })
         </script>
         <script src="{% static 'custom/js/map-home.js' %}"></script>
