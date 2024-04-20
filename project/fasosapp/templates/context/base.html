@@ -59,7 +59,27 @@
               .then(response => response.json())
               .then(function(json){
                 console.log(json)
-                L.geoJSON(json).bindPopup('pop up').addTo(map)
+                L.geoJSON(json, {
+                    onEachFeature: function(feature, Layer) {
+                        console.log(feature.properties)
+                        // Layer.bindPopup(feature.properties.nama)
+                        Layer.bindPopup(
+                            `
+                                <h5> ${feature.properties.nama}</h5>
+                                <ul>
+                                    <li> Jenis : ${feature.properties.jenis}</li>
+                                    <li> Tingkatan : ${feature.properties.tingkatan}</li>
+                                    <li> Alamat : ${feature.properties.alamat}</li>
+                                    <li> No Telpon : ${feature.properties.alamat}</li>
+                                    <li> Status : ${feature.properties.status}</li>
+                                    <li> Hari Beroperasi : ${feature.properties.status}</li>
+                                    <li> Jam Beroperasi : ${feature.properties.jam_beroperasi}</li
+                                </ul>
+                            `
+                        )
+                    }
+                }).addTo(map)
+
               })
         </script>
         <script src="{% static 'custom/js/map-home.js' %}"></script>
