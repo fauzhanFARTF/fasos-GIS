@@ -12,10 +12,12 @@ import ast # untuk mengubah string menjadi dictionary
 # View
 def home(request):
     return render(request, 'pages/home.html')
+
 # API
 def faskes_api(request):
     data = serialize('geojson', MedicalFacility.objects.all())
     return HttpResponse(data, content_type="json") 
+
 # Custom API
 def custom_api(request):
     data = {
@@ -24,6 +26,7 @@ def custom_api(request):
         'perempuan' : 'False'
     }
     return JsonResponse(data)
+
 # Custom Map API
 def custom_faskes_api(request):
     # Mengambil data dari model
@@ -38,7 +41,6 @@ def custom_faskes_api(request):
         'features' : []
     }
     model = MedicalFacility.objects.all()
-    
     # Mengambil data dari model
     for item in model:
         # print(item)
@@ -57,3 +59,8 @@ def custom_faskes_api(request):
         features['features'].append(feature) # Menambahkan feature ke dalam features
     print(features)
     return JsonResponse(features, safe=False)
+
+# Standart Map API
+def standart_faskes_api(request):
+    data = serialize('geojson', MedicalFacility.objects.all())
+    return HttpResponse(data, content_type="application/json") 
