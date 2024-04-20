@@ -24,3 +24,19 @@ def custom_api(request):
         'perempuan' : 'False'
     }
     return JsonResponse(data)
+# Custom Map API
+def custom_faskes_api(request):
+    features = []
+    model = MedicalFacility.objects.all()
+    for item in model:
+        print(item)
+        print(item.nama)
+        feature = {
+            'nama' : item.nama,
+            'jenis' : item.jenis,
+            'tingkatan' : item.tingkatan,
+            'status' : item.status
+        }
+        features.append(feature)
+    print(features)
+    return JsonResponse(features, safe=False)
