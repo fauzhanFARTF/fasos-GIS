@@ -42,6 +42,17 @@
         <script src="{% static 'leaflet-1.9.4/leaflet.js' %}"></script>
 
     <!-- MAP HOME -->
+        <script>
+        // Fetch Custom Data Faskes
+            fetch('{% url "custom_faskes_api" %}')
+            //.then(x=> console.log(x.text))
+            .then(response => response.json())
+            .then(function(json){
+                console.log(json)
+                L.geoJSON(json).addTo(map)
+            })
+            // .then(json => console.log(json))
+        </script>
         <script src="{% static 'custom/js/map-home.js' %}"></script>
   </body>
 </html>

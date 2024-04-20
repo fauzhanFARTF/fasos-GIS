@@ -44,11 +44,7 @@ def custom_faskes_api(request):
         # print(item)
         # print(item.nama)
         feature = {
-            "types" :"Feature",
-            "geometry" :
-                {
-                    "geometry": ast.literal_eval(item.location.json),
-                },
+            "type" :"Feature",
             "properties" : 
                 {
                     'nama' : item.nama,
@@ -56,6 +52,7 @@ def custom_faskes_api(request):
                     'tingkatan' : item. tingkatan,
                     'status' : item.status
                 },
+            "geometry": ast.literal_eval(item.location.json),
         }
         features['features'].append(feature) # Menambahkan feature ke dalam features
     print(features)
