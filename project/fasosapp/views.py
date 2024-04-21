@@ -1,5 +1,5 @@
 # View
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 # Serializer
 from django.core.serializers import serialize  # melakukan serialisasi menghasilkan data geojson / membuat api
 # Model
@@ -97,3 +97,19 @@ def medical_facility_list(request):
 
     }
     return render(request,'pages/medical_facility_list.html', context)
+
+# Medical Facility Update
+def medical_facility_form_update(request , pk):
+    objek = get_object_or_404(MedicalFacility, id=pk)
+    form = MedicalFacilityForm(request.POST or None, request.FILES or None, instance=objek)
+    
+    if request.method == 'POST':
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.operator = request.user
+            data.save()
+            return redirect('medical_facility_list')
+    context = {
+        'form' : form
+    }
+    return render(request,'pages/medical_facility_update.html', context)

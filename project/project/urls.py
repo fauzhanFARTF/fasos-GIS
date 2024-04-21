@@ -18,7 +18,7 @@ from django.urls import path
 from fasosapp.views import home
 from django.conf import settings
 from django.conf.urls.static import static
-from fasosapp.views import home , faskes_api, custom_api, custom_faskes_api, standart_faskes_api, medical_facility_form_add, medical_facility_list
+from fasosapp.views import home , faskes_api, custom_api, custom_faskes_api, standart_faskes_api, medical_facility_form_add, medical_facility_list, medical_facility_form_update
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/standart-faskes-api/', standart_faskes_api, name='standart_faskes_api'),
     path('medical_facility/add/', medical_facility_form_add, name='medical_facility_form_add'),
     path('medical_facility/', medical_facility_list, name='medical_facility_list'),
+    path('medical_facility/update/<int:pk>/', medical_facility_form_update, name='medical_facility_form_update'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

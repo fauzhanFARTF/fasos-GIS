@@ -27,6 +27,7 @@
                     <th>Photo</th>
                     <th>Hari Beroperasi</th>
                     <th>Jam Beroperasi</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +58,10 @@
                     <td><img src="{{item.photo.url}}" alt="{{item.photo}}" width = "130px" height="100px"></td>
                     <td>{{item.hari_beroperasi}}</td>
                     <td>{{item.jam_beroperasi}}</td>
+                    <td>
+                        <a href="{% url 'medical_facility_form_update' item.id %}" class="btn btn-sm btn-success">Update</a>
+                        <a href="" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
