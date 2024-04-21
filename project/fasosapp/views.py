@@ -88,3 +88,10 @@ def medical_facility_form_add(request):
        'form' : form 
     }
     return render(request,'pages/medical_facility_add.html', context)
+
+# Medical Facility List
+def medical_facility_list(request):
+    context = {
+        'data' : MedicalFacility.objects.all()
+    }
+    return render(request,'pages/medical_facility_list.html', context)
