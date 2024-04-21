@@ -4,114 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %} {% endblock %} | fasosGIS</title>
+    
+    {% block head %} {% endblock %}
 
-    <!-- BOOTSTRAP CDN
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" > -->
+    <!-- Bootstrap CDN
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> -->
+
+    <!-- LEAFLET CDN
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"> -->
+
+    {% load static %}
 
     <!-- BOOTSTRAP STATIC -->
-      {% load static %}
       <link rel="stylesheet" href="{% static 'bootstrap-5.2.3/dist/css/bootstrap.css'%}">
-
-    <!-- LEAFLET CDN -->
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
     <!-- LEAFLET STATIC -->
       <link rel="stylesheet" href="{% static 'leaflet-1.9.4/leaflet.css' %}">
 
-    <!-- CONTAINER HOME -->
-      <link rel="stylesheet" href="{% static 'custom/css/container-home.css' %}">
-
-    {% block head %} {% endblock %}
   </head>
+
   <body class="container-fluid">
     {% include 'context/navbar.html' %}
-    {% block body %} {% endblock %}
 
-      <!-- BOOSTRAP CDN
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
-
-    <!-- BOOTSTRAP STATIC -->
-        <script src="{% static 'bootstrap-5.2.3/dist/js/bootstrap.js'%}"></script>
-        <script src="{% static 'bootstrap-5.2.3/dist/js/bootstrap.bundle.min.js'%}"></script>
+    <!-- BOOSTRAP CDN
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
 
     <!-- LEAFLET CDN
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> -->
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> -->
+
+    <!-- BOOTSTRAP STATIC -->
+      <script src="{% static 'bootstrap-5.2.3/dist/js/bootstrap.js'%}"></script>
+      <script src="{% static 'bootstrap-5.2.3/dist/js/bootstrap.bundle.min.js'%}"></script>
 
     <!-- LEAFLET STATIC -->
-        <script src="{% static 'leaflet-1.9.4/leaflet.js' %}"></script>
+      <script src="{% static 'leaflet-1.9.4/leaflet.js' %}"></script>
+
+    {% block body %} {% endblock %}
 
     <!-- MAP HOME -->
-        <script>
-        // Fetch Custom Data Faskes
-            /*
-              fetch('{% url "custom_faskes_api" %}')
-              //.then(x=> console.log(x.text))
-              .then(response => response.json())
-              .then(function(json){
-                  console.log(json)
-                  L.geoJSON(json).addTo(map)
-              })
-              // .then(json => console.log(json))
-            */
-        // Fetch Standart Data Faskes
-              fetch('{% url "standart_faskes_api" %}')
-              .then(response => response.json())
-              .then(function(json){
-                console.log(json)
-                L.geoJSON(json, {
-                    onEachFeature: function(feature, Layer) {
-                        console.log(feature.properties)
-                        // Layer.bindPopup(feature.properties.nama)
-                        const popupContent =
-                        `
-                            <h5 class = "text-primary"> ${feature.properties.nama}</h5>
-                            <div class="container">
-                                <img src="media/${feature.properties.photo}" width = "290px" height="150px">
-                                <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Properti</th>
-                                        <th>Keterangan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Jenis </td>
-                                        <td>${feature.properties.jenis}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tingkatan </td>
-                                        <td>${feature.properties.tingkatan}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alamat</td>
-                                        <td>${feature.properties.alamat}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>No Telepon</td>
-                                        <td>${feature.properties.no_telp}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Status</td>
-                                        <td>${feature.properties.status}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hari Beroperasi</td>
-                                        <td>${feature.properties.hari_beroperasi}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jam Beroperasi</td>
-                                        <td>${feature.properties.jam_beroperasi}</td>
-                                    </tr>
-                        `
-                        Layer.bindPopup(popupContent);
-                    }
-                }).addTo(map)
+      <script src="{% static 'custom/js/map-home.js'%}"></script>
+      {% include 'context/map-home.html' %}
 
-              })
-        </script>
-        <script src="{% static 'custom/js/map-home.js' %}"></script>
   </body>
 </html>
-

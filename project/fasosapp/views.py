@@ -1,12 +1,15 @@
 # View
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # Serializer
 from django.core.serializers import serialize  # melakukan serialisasi menghasilkan data geojson / membuat api
 # Model
 from .models import MedicalFacility  # memanggil model
+# Medical Facility Form
+from .forms import MedicalFacilityForm
 # Http
 from django.http import HttpResponse, JsonResponse  # menghasilkan response dari api
 import ast # untuk mengubah string menjadi dictionary
+# Form MedicalFacility
 
 # Create your views here.
 # View
@@ -64,3 +67,24 @@ def custom_faskes_api(request):
 def standart_faskes_api(request):
     data = serialize('geojson', MedicalFacility.objects.all())
     return HttpResponse(data, content_type="application/json") 
+
+# Medical Facility Form Add
+def medical_facility_form_add(request):
+    # pass
+    if request.method == 'POST':
+        form = MedicalFacilityForm(request.POST, request.FILES)
+        if form.is_valid():
+            # logic for post data
+            # return 'Hello World'
+            data = form.save(commit=False)
+            data.operator = request.user
+            data.save()
+            return redirect('home')
+
+    else :
+        form = MedicalFacilityForm()
+        
+    context =  {
+       'form' : form 
+    }
+    return render(request,'pages/medical_facility_add.html', context)
