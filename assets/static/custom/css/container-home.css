@@ -1,4 +1,7 @@
 /* CONTAINER HOME */
+
+@import url('https://fonts.cdnfonts.com/css/sofia-sans');
+                
 #peta {
     height :600px;
 }
@@ -7,4 +10,7 @@
 }
 .row {
     padding-top: 20px;
+}
+* {
+    font-family: 'Sofia Sans', sans-serif;       
 }
