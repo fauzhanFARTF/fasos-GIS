@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from fasosapp.views import home
 from django.conf import settings
 from django.conf.urls.static import static
@@ -31,6 +31,10 @@ urlpatterns = [
     path('medical_facility/', medical_facility_list, name='medical_facility_list'),
     path('medical_facility/update/<int:pk>/', medical_facility_form_update, name='medical_facility_form_update'),
     path('medical_facility/delete/<int:pk>/', medical_facility_form_delete, name='medical_facility_form_delete'),
+    
+    
+    # Sistem Authentication
+    path('', include('django.contrib.auth.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
