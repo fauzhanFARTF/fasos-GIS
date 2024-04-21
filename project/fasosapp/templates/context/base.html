@@ -21,6 +21,10 @@
     <!-- LEAFLET STATIC -->
       <link rel="stylesheet" href="{% static 'leaflet-1.9.4/leaflet.css' %}">
 
+    <!-- DATA TABLES CDN -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.min.css" />
+
+
   </head>
 
   <body class="container-fluid">
@@ -39,6 +43,18 @@
 
     <!-- LEAFLET STATIC -->
       <script src="{% static 'leaflet-1.9.4/leaflet.js' %}"></script>
+
+    <!-- DATA TABLES CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.0/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
+
 
     {% block body %} {% endblock %}
 
