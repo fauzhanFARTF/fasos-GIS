@@ -1,0 +1,23 @@
+{% extends 'context/base.html' %}
+{% load leaflet_tags %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Delete Fasilitas
+{% endblock %}
+
+{% block head %}
+    {% leaflet_css plugins="forms" %}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Apakah anda yakin akan menghapus data ini</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <input type="submit"/>
+            </form>
+    </div>
+    {% leaflet_js plugins="forms" %}
+{% endblock %}

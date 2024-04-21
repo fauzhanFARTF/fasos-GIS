@@ -113,3 +113,16 @@ def medical_facility_form_update(request , pk):
         'form' : form
     }
     return render(request,'pages/medical_facility_update.html', context)
+
+# Medical Facility Delete
+def medical_facility_form_delete(request, pk):
+    objek = get_object_or_404(MedicalFacility, id=pk)
+    form = MedicalFacilityForm(request.POST or None, request.FILES or None, instance=objek)
+    
+    if request.method == 'POST':
+        objek.delete()
+        return redirect('medical_facility_list')
+    context = {
+        'form' : form
+    }
+    return render(request, 'pages/medical_facility_delete.html', context)
