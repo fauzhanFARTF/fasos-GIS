@@ -92,6 +92,8 @@ def medical_facility_form_add(request):
 # Medical Facility List
 def medical_facility_list(request):
     context = {
-        'data' : MedicalFacility.objects.all()
+        # 'data' : MedicalFacility.objects.all()
+        'data' : MedicalFacility.objects.filter(operator = request.user)
+
     }
     return render(request,'pages/medical_facility_list.html', context)
