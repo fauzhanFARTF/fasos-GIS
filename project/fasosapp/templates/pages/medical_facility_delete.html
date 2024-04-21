@@ -6,8 +6,11 @@
     Delete Fasilitas
 {% endblock %}
 
+    {% load static %}
+    
 {% block head %}
     {% leaflet_css plugins="forms" %}
+    <link rel="stylesheet" href="{% static 'custom/css/container-home.css'%}">
 {% endblock %}
 
 {% block body %}
