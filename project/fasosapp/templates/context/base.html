@@ -26,13 +26,14 @@
 
     <!-- FONT CDN -->
     <link href="https://fonts.cdnfonts.com/css/sofia-sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
                 
 
   </head>
 
   <body class="container-fluid">
     {% include 'context/navbar.html' %}
-
     <!-- BOOSTRAP CDN
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.js"></script>
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
@@ -65,5 +66,6 @@
       <script src="{% static 'custom/js/map-home.js'%}"></script>
       {% include 'context/map-home.html' %}
 
+    {% include 'context/footer.html' %}
   </body>
 </html>
