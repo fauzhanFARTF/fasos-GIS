@@ -162,3 +162,4 @@ L.Control.ZoomBar
 Leaflet.zoomslider
 Leaflet-Minimap
 Leaflet.PolylineMeasure
+leaflet-control-geocoder

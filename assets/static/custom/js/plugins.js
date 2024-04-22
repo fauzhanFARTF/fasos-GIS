@@ -33,3 +33,6 @@ let miniMap = new L.Control.MiniMap(osm2, {
 
 // Plugins Control Polyline Measure
 let ctlMeasure = L.control.polylineMeasure().addTo(map);
+
+// Plugins Geocoder
+let ctlGeocoder = L.Control.geocoder({position:'topleft'}).addTo(map);
