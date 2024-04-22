@@ -19,3 +19,5 @@ let ctlPan = L.control.pan({position: "bottomleft"}).addTo(map);
     //    console.log("Zoom: "+map.getZoom());
         alert("Lat: "+map.getCenter().lat+"\nLon: "+map.getCenter().lng+"\nZoom: "+map.getZoom());
     }
+// Control Zoom Slider
+let ctlZoomSlider = L.control.zoomslider({position: 'topright'}).addTo(map);
