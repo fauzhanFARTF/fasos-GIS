@@ -16,7 +16,7 @@
         .then(response => response.json())
         .then(function(json){
             console.log(json)
-            L.geoJSON(json,{
+            const lightData = L.geoJSON(json, {
                 onEachFeature: function(feature, Layer) {
                     console.log(feature.properties)
                     // Layer.bindPopup(feature.properties.nama)
@@ -68,8 +68,10 @@
                     //return L.circleMarker(latlng, geojsonMarkerIcon);
                     return L.marker(latlng, {icon: hospitalIcon});
                 },
-
-            }).addTo(map)   
+            }).addTo(map)  
+        // Marker clustering
+            const markers = L.markerClusterGroup().addLayer(lightData);
+            map.addLayer(markers);
         })
 
     // Icon
