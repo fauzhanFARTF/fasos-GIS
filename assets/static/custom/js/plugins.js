@@ -36,3 +36,27 @@ let ctlMeasure = L.control.polylineMeasure().addTo(map);
 
 // Plugins Geocoder
 let ctlGeocoder = L.Control.geocoder({position:'topleft'}).addTo(map);
+
+// Plugins Easy Button Map Get Location
+let ctlEasyButton = L.easyButton('fa-crosshairs', function(){   
+    // fa-solid fa-crosshairs didapat dari  --> https://www.w3schools.com/icons/fontawesome5_icons_maps.asp
+    map.locate();
+}).addTo(map); 
+
+// call locate method and     // get user location on button click
+    let mrkCurrentLocation;
+    map.on('keypress', function(e) {
+        if (e.originalEvent.key='`'){
+            map.locate();
+        }
+    });
+    map.on('locationfound',function(e){
+        if(mrkCurrentLocation){
+            mrkCurrentLocation.remove();
+        }
+        mrkCurrentLocation = L.circleMarker(e.latlng).addTo(map);
+        map.setView(e.latlng, 14);
+    });
+    map.on('locationerror',function(e){
+        alert("location not found");
+    });
