@@ -161,3 +161,4 @@ Leaflet.Pancontrol
 L.Control.ZoomBar
 Leaflet.zoomslider
 Leaflet-Minimap
+Leaflet.PolylineMeasure

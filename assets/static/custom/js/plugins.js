@@ -30,3 +30,6 @@ let miniMap = new L.Control.MiniMap(osm2, {
     toggleDisplay: true,
     position:'bottomright' 
 }).addTo(map);
+
+// Plugins Control Polyline Measure
+let ctlMeasure = L.control.polylineMeasure().addTo(map);
