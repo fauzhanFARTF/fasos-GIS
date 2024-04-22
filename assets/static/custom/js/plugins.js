@@ -21,3 +21,12 @@ let ctlPan = L.control.pan({position: "bottomleft"}).addTo(map);
     }
 // Control Zoom Slider
 let ctlZoomSlider = L.control.zoomslider({position: 'topright'}).addTo(map);
+
+// Plugins Control Minimap
+let osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+let osmAttrib='Map data &copy; OpenStreetMap contributors';
+let osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib });
+let miniMap = new L.Control.MiniMap(osm2, { 
+    toggleDisplay: true,
+    position:'bottomright' 
+}).addTo(map);
