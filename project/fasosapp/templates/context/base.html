@@ -108,8 +108,8 @@
     {% block body %} {% endblock %}
 
     <!-- MAP HOME -->
-      <script src="{% static 'custom/js/map-home.js'%}"></script>
       {% include 'context/map-home.html' %}
+      <script src="{% static 'custom/js/map-home.js'%}"></script>
       <script src="{% static 'custom/js/plugins.js'%}"></script>
 
     {% include 'context/footer.html' %}

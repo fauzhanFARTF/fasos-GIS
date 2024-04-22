@@ -66,7 +66,7 @@
                 },
                 pointToLayer: function (feature, latlng) {
                     //return L.circleMarker(latlng, geojsonMarkerIcon);
-                    return L.marker(latlng, {icon: hospitalIcon});
+                    return L.marker(latlng, {icon: hospitalIcon}).addTo(cities);
                 },
             }).addTo(map)  
         // Marker clustering
