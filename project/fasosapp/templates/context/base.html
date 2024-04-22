@@ -21,6 +21,10 @@
     <!-- LEAFLET STATIC -->
       <link rel="stylesheet" href="{% static 'leaflet-1.9.4/leaflet.css' %}">
 
+        <!-- Include leaflet Mouse Position -->
+        <link rel="stylesheet" href="{% static 'Leaflet.MousePosition/src/L.Control.MousePosition.css' %}">
+
+
     <!-- DATA TABLES CDN -->
         <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.min.css" />
 
@@ -47,6 +51,9 @@
 
     <!-- LEAFLET STATIC -->
       <script src="{% static 'leaflet-1.9.4/leaflet.js' %}"></script>
+        <!-- Load Leaflet Javascript Mouse Position -->
+        <script src="{% static 'Leaflet.MousePosition/src/L.Control.MousePosition.js' %}"></script>
+
 
     <!-- DATA TABLES CDN -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
@@ -65,6 +72,7 @@
     <!-- MAP HOME -->
       <script src="{% static 'custom/js/map-home.js'%}"></script>
       {% include 'context/map-home.html' %}
+      <script src="{% static 'custom/js/plugins.js'%}"></script>
 
     {% include 'context/footer.html' %}
   </body>
