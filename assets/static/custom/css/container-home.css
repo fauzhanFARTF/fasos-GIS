@@ -42,11 +42,32 @@ footer .content .top{
   justify-content: space-between;
   margin-bottom: 50px;
 }
+.bg-custom {
+      background-color: #140B5C !important; /* Ubah warna latar belakang navbar menjadi biru */
+}
 .navbar-text {
-    font-size: 18px !important;; 
+    font-size: 18px !important;
+    color: white !important;
+}
+.btn-custom-whitesmoke{
+  background-color: rgb(235, 234, 234) !important;
+  padding-left: -10px !important;
+}
+.btn-custom-whitesmoke:hover{
+  background-color: rgb(252, 43, 43) !important;
+}
+.btn-custom-danger{
+  background-color: rgb(235, 234, 234) !important;
+}
+.btn-custom-danger:hover{
+  background-color: rgb(252, 43, 43) !important;
+  color: whitesmoke !important;
+}
+.btn-custom{
+  color: white !important;
 }
 #peta {
-    height :600px;
+    height :1000px;
 }
 .container {
     padding-top: 30px;
