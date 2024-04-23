@@ -46,7 +46,7 @@
     };
     
     const overlays = {
-        'Cities': cities
+        'Fasilitas Kesehatan': cities
     };
 
-    const layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+    const layerControl = L.control.layers(baseLayers, overlays,{position: 'topleft'}).addTo(map);

@@ -6,7 +6,9 @@
 
     {% load static %}
 
-    <link rel="stylesheet" href="{% static 'custom/css/container-home.css'%}">
+    <link rel="stylesheet" href="{% static 'custom/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'custom/css/style-mw-700.css'%}">
+    <link rel="stylesheet" href="{% static 'custom/css/style-mw-900.css'%}">
 
 {% endblock %} 
 {% block body %}
@@ -15,4 +17,7 @@
         <p>Berisi Informasi Persebaran Fasilitas Sosial dan Fasilitas Umum di Kabupaten Tangerang </p>
         <div id="peta">Tampilan Peta</div>
     </div>
+
+    {% include 'context/map-home.html' %}
+    <script src="{% static 'custom/js/map-home.js'%}"></script>
 {% endblock %}
