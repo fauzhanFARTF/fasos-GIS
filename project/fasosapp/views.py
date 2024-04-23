@@ -126,3 +126,7 @@ def medical_facility_form_delete(request, pk):
         'form' : form
     }
     return render(request, 'pages/medical_facility_delete.html', context)
+
+# Routing Machine
+def routing_machine(request):
+    return render(request, 'pages/routing_machine.html')

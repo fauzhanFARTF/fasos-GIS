@@ -1,0 +1,18 @@
+.leaflet-routing-container{
+  width: 400px;
+}
+.leaflet-routing-alt{
+    background-color: white !important;
+}
+.leaflet-routing-alt h2{
+    font-size: 15px;}
+.leaflet-routing-alt h3{
+    font-size: 12px;}
+.leaflet-routing-alt td{
+    font-size: 10px;}
+.leaflet-routing-geocoders {
+    background-color: white !important;
+}
+.leaflet-routing-geocoders input{
+    width : 250px;
+}

@@ -1,0 +1,27 @@
+{% extends 'context/base.html' %} 
+{% block title %}
+    Home
+{% endblock %} 
+{% block head %}
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'custom/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'custom/css/routing.css'%}">
+    <link rel="stylesheet" href="{% static 'custom/css/style-mw-700.css'%}">
+    <link rel="stylesheet" href="{% static 'custom/css/style-mw-900.css'%}">
+
+    
+{% endblock %} 
+{% block body %}    
+    <div class="container">
+        <h1>Mesin Pencari Rute (Routing Machine)</h1>
+        <p>Berisi Halaman untuk pencari rute dan estimasi waktu perjalanan </p>
+        <div id="peta">Tampilan Peta</div>
+    </div>
+
+{% include 'context/map-routing.html' %}
+<script src="{% static 'custom/js/map-routing.js'%}"></script>
+<script src="{% static 'custom/js/routing.js'%}"></script>
+
+{% endblock %}
