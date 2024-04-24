@@ -14,8 +14,10 @@ body{
     width: 100%;
     background: #EEECEB;
 }
+.container {
+  padding-bottom: 50px;
+}
 footer{
-    margin-top: 20px;
     position: relative;
     background: #140B5C;
     width: 100%;
@@ -67,6 +69,9 @@ footer .content .top{
   color: white !important;
 }
 #peta {
+    height :1000px;
+}
+#map {
     height :1000px;
 }
 .container {
