@@ -65,3 +65,36 @@ class MedicalFacility(models.Model) :
     photo = models.ImageField(upload_to='medical_facility')
     operator = models.ForeignKey(User, on_delete=models.CASCADE)
     date_field = models.DateTimeField(auto_now=True)
+
+
+class LocalGovernmentOffice(models.Model) :
+    STATUS_CHOICES = [
+        ('Perencanaan/Pengajuan', 'Perencanaan/Pengajuan'),
+        ('Dalam Masa Peninjauan', 'Dalam Masa Peninjauan'),
+        ('Perencanaan Dibatalkan', 'Perencanaan Dibatalkan'),
+        ('Dalam Masa Pembangunan', 'Dalam Masa Pembangunan'),
+        ('Pembangunan Selesai/Belum Beroperasi', 'Pembangunan Selesai/Belum Beroperasi'),
+        ('Pembangunan Selesai/Sudah Beroperasi', 'Pembangunan Selesai/Sudah Beroperasi'),
+        ('Tutup/Sudah Tidak Beroperasi', 'Tutup/Sudah Tidak Beroperasi')
+    ]
+    DAYS_CHOICES = [
+        ('Setiap Hari', 'Setiap Hari'),
+        ('Senin - Jumat', 'Senin - Jumat'),
+        ('Sabtu - Minggu', 'Sabtu - Minggu')
+    ]
+    SPESIFIC_CHOICES =[
+        ('Perangkat Daerah','Perangkat Daerah'),
+        ('Instansi Vertikal','Instansi Vertikal'),
+    ]
+    
+    nama = models.CharField(max_length=50)
+    jenis = models.CharField(max_length=50, choices=SPESIFIC_CHOICES, default='Perangkat Daerah')
+    alamat = models.TextField(max_length=255)
+    no_telp = models.CharField(max_length=50)
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Perencanaan/Pengajuan')
+    hari_beroperasi = models.CharField(max_length=50, choices=DAYS_CHOICES)
+    jam_beroperasi = models.CharField(max_length=50)
+    location = models.PointField(srid=4326, spatial_index=True)
+    photo = models.ImageField(upload_to='local_government_office')
+    operator = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_field = models.DateTimeField(auto_now=True)
