@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 # Serializer
 from django.core.serializers import serialize  # melakukan serialisasi menghasilkan data geojson / membuat api
 # Model
-from .models import MedicalFacility  # memanggil model
+from .models import MedicalFacility, LocalGovernmentOffice  # memanggil model
 # Medical Facility Form
 from .forms import MedicalFacilityForm
 # Http
@@ -130,3 +130,7 @@ def medical_facility_form_delete(request, pk):
 # Routing Machine
 def routing_machine(request):
     return render(request, 'pages/routing_machine.html')
+
+def standart_opd_api(request):
+    data = serialize('geojson',LocalGovernmentOffice.objects.all())
+    return HttpResponse(data, content_type="application/json") 
