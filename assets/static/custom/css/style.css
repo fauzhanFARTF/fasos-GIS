@@ -233,4 +233,10 @@ footer .bottom-details .bottom_text{
 .bottom-details .bottom_text a{
   margin-right: 10px;
 }
-
+.navbar-brand img{
+  margin-right: 10px;
+}
+#navbar-title{
+  color: white;
+  font-size: 25px;
+}
