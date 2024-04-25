@@ -15,11 +15,16 @@
 
     {% load static %}
 
+    <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'custom/css/style.css'%}">
+        <link rel="stylesheet" href="{% static 'custom/css/style-mw-700.css'%}">
+        <link rel="stylesheet" href="{% static 'custom/css/style-mw-900.css'%}">
+
     <!-- BOOTSTRAP STATIC -->
-      <link rel="stylesheet" href="{% static 'bootstrap-5.2.3/dist/css/bootstrap.css'%}">
+        <link rel="stylesheet" href="{% static 'bootstrap-5.2.3/dist/css/bootstrap.css'%}">
 
     <!-- LEAFLET STATIC -->
-      <link rel="stylesheet" href="{% static 'leaflet-1.9.4/leaflet.css' %}">
+        <link rel="stylesheet" href="{% static 'leaflet-1.9.4/leaflet.css' %}">
 
         <!-- Include leaflet Mouse Position -->
         <link rel="stylesheet" href="{% static 'Leaflet.MousePosition/src/L.Control.MousePosition.css' %}">
@@ -42,6 +47,8 @@
         <link rel="stylesheet" href="{% static 'Leaflet.markercluster-1.4.1/dist/MarkerCluster.Default.css' %}">
         <!-- Include leaflet Routing Machine --> 
         <link rel="stylesheet" href="{% static 'leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.css' %}" />
+        <!-- Load Leaflet Routing Machine Graphhopper-->
+        <!-- <link rel="stylesheet" href="{% static 'lrm-graphhopper/examples/index.css' %}" /> -->
 
 
 
@@ -93,6 +100,10 @@
         <script src="{% static 'Leaflet.markercluster-1.4.1/dist/leaflet.markercluster.js' %}"></script>
         <!-- Load Leaflet Routing Machine -->
         <script src="{% static 'leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.js' %}"></script>
+        <!-- Load Leaflet Routing Machine Graphhopper-->
+        <!-- <script src="{% static 'lrm-graphhopper/dist/lrm-graphhopper-1.2.0.min.js'%}"></script>
+        <script src="{% static 'lrm-graphhopper/examples/Control.Geocoder.js'%}"></script>
+        <script src="{% static 'lrm-graphhopper/examples/index.js'%}"></script> -->
 
 
 
