@@ -19,7 +19,8 @@ body{
 }
 footer{
     position: relative;
-    background: #140B5C;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 29%, rgba(0,164,255,1) 100%);
     width: 100%;
     bottom: 0;
     left: 0;
@@ -45,7 +46,9 @@ footer .content .top{
   margin-bottom: 50px;
 }
 .bg-custom {
-      background-color: #140B5C !important; /* Ubah warna latar belakang navbar menjadi biru */
+      /*background-color: #140B5C !important; /* Ubah warna latar belakang navbar menjadi biru */
+      background: rgb(2,0,36);
+      background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 29%, rgba(0,164,255,1) 100%);
 }
 .navbar-text {
     font-size: 18px !important;
