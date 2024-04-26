@@ -88,7 +88,7 @@ class LocalGovernmentOffice(models.Model) :
     ]
     
     nama = models.CharField(max_length=50)
-    jenis = models.CharField(max_length=50, choices=SPESIFIC_CHOICES, default='Perangkat Daerah')
+    tipe = models.CharField(max_length=50, choices=SPESIFIC_CHOICES, default='Perangkat Daerah')
     alamat = models.TextField(max_length=255)
     no_telp = models.CharField(max_length=50)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Perencanaan/Pengajuan')

@@ -1,0 +1,149 @@
+ // Fetch Standart Data Faskes
+ /*
+    // Fetch Custom Data Faskes
+        /*
+        fetch('{% url "custom_faskes_api" %}')
+        //.then(x=> console.log(x.text))
+        .then(response => response.json())
+        .then(function(json){
+            console.log(json)
+            L.geoJSON(json).addTo(map)
+        })
+        // .then(json => console.log(json))
+        */      
+ 
+ fetch('{% url "standart_faskes_api" %}')
+        .then(response => response.json())
+        .then(function(json){
+            console.log(json)
+            const lightData = L.geoJSON(json, {
+                onEachFeature: function(feature, Layer) {
+                    console.log(feature.properties)
+                    // Layer.bindPopup(feature.properties.nama)
+                    const popupContent =
+                    `
+                        <h5 class = "text-primary"> ${feature.properties.nama}</h5>
+                        <div class="container">
+                            <img src="media/${feature.properties.photo}" width = "290px" height="150px">
+                            <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Properti</th>
+                                    <th>Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Jenis </td>
+                                    <td>${feature.properties.jenis}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tingkatan </td>
+                                    <td>${feature.properties.tingkatan}</td>
+                                </tr>
+                                <tr>
+                                    <td>Alamat</td>
+                                    <td>${feature.properties.alamat}</td>
+                                </tr>
+                                <tr>
+                                    <td>No Telepon</td>
+                                    <td>${feature.properties.no_telp}</td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td>${feature.properties.status}</td>
+                                </tr>
+                                <tr>
+                                    <td>Hari Beroperasi</td>
+                                    <td>${feature.properties.hari_beroperasi}</td>
+                                </tr>
+                                <tr>
+                                    <td>Jam Beroperasi</td>
+                                    <td>${feature.properties.jam_beroperasi}</td>
+                                </tr>
+                    `
+                    Layer.bindPopup(popupContent);
+                },
+                pointToLayer: function (feature, latlng) {
+                    //return L.circleMarker(latlng, geojsonMarkerIcon);
+                    return L.marker(latlng, {icon: hospitalIcon}).addTo(cities);
+                },
+            }).addTo(map)  
+        // Marker clustering
+            const markers = L.markerClusterGroup().addLayer(lightData);
+            map.addLayer(markers);
+        })
+
+
+        fetch('{% url "standart_opd_api" %}')
+        //.then(x=> console.log(x.text))
+        .then(response => response.json())
+        .then(function(json){
+            // console.log(json)
+            let opd = L.geoJSON(json, {
+                    onEachFeature: function(feature, Layer) {
+                        // console.log(feature.properties)
+                        // console.log(feature.geometry.coordinates[1])
+                        // Layer.bindPopup(feature.properties.nama)
+                        const popupContent =
+                        `
+                            <h5 class = "text-primary"> ${feature.properties.nama}</h5>
+                            <div class="container">
+                                <img src="media/${feature.properties.photo}" width = "290px" height="150px">
+                                <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Properti</th>
+                                        <th>Keterangan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>${feature.properties.alamat}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>No Telepon</td>
+                                        <td>${feature.properties.no_telp}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>${feature.properties.status}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hari Beroperasi</td>
+                                        <td>${feature.properties.hari_beroperasi}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jam Beroperasi</td>
+                                        <td>${feature.properties.jam_beroperasi}</td>
+                                    </tr>
+                        `
+                        Layer.bindPopup(popupContent);
+                    },
+                    pointToLayer: function (feature, latlng) {
+                        //return L.circleMarker(latlng, geojsonMarkerIcon);
+                        return L.marker(latlng, {icon : opdIcon});
+                    },
+                })
+
+            /*
+                let searchControl = new L.Control.Search({
+                    layer : opd,
+                    propertyName : 'nama'
+                }) 
+                map.addControl(searchControl)
+            */
+                
+            // Marker clustering
+                let markers = L.markerClusterGroup().addLayer(opd);
+                map.addLayer(markers);
+                    let overlayMaps ={
+                        "Operasi Perangkat Daerah" : opd,
+                    }  
+
+                let layerControl = L.control.layers("", overlayMaps, {
+                    position: 'topright'
+                }).addTo(map);
+        })
+    */
