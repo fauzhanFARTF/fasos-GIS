@@ -153,3 +153,10 @@ def local_government_office_form_add(request):
        'form' : form 
     }
     return render(request,'pages/local_government_office_add.html', context)
+
+def local_government_office_list(request):
+    context = {
+        # 'data' : MedicalFacility.objects.all()
+        'data' : LocalGovernmentOffice.objects.filter(operator = request.user)
+    }
+    return render(request,'pages/local_government_office_list.html', context)
