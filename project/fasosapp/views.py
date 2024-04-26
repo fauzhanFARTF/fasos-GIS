@@ -174,4 +174,17 @@ def local_government_office_form_update(request , pk):
     context = {
         'form' : form
     }
-    return render(request,'pages/local_government_office_update.html', context)
+    return render(request,'pages/local_government_office_update.html', context)'
+
+def local_government_office_form_delete(request, pk):
+    objek = get_object_or_404(LocalGovernmentOffice, id=pk)
+    form = LocalGovernmentOfficeForm(request.POST or None, request.FILES or None, instance=objek)
+    
+    if request.method == 'POST':
+        objek.delete()
+        return redirect('local_government_office_list')
+    context = {
+        'form' : form
+    }
+    return render(request, 'pages/local_government_office_delete.html', context)
+'

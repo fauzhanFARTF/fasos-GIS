@@ -1,6 +1,6 @@
 # from django.contrib import admin      # Admin Non Spatial
 from django.contrib.gis  import admin   # Admin Spatial
-from .models import MedicalFacility, LocalGovernmentOffice
+from .models import MedicalFacility, LocalGovernmentOffice, CCTVETLE
 
 # Register your models here.
 class LocationAdmin(admin.OSMGeoAdmin):
@@ -22,3 +22,9 @@ class MedicalFacilityAdmin(LocationAdmin):
 class LocalGovernmentOffice(LocationAdmin):
     list_filter = ['status', 'operator']
     list_display = ['id', 'nama', 'alamat', 'no_telp', 'status', 'operator']
+    
+@admin.register(CCTVETLE)
+class CCTVETLE(LocationAdmin):
+    list_filter = ['is_active', 'operator']
+    list_display = ['id', 'kode_cam', 'polsek', 'is_active', 'tgl_pemasangan', 'operator']
+

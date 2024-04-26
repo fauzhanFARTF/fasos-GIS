@@ -98,3 +98,47 @@ class LocalGovernmentOffice(models.Model) :
     photo = models.ImageField(upload_to='local_government_office')
     operator = models.ForeignKey(User, on_delete=models.CASCADE)
     date_field = models.DateTimeField(auto_now=True)
+    
+    class CCTVETLE (models.Model) :
+        STATUS_CHOICES = [
+        ('Perencanaan/Pengajuan', 'Perencanaan/Pengajuan'),
+        ('Dalam Masa Peninjauan', 'Dalam Masa Peninjauan'),
+        ('Perencanaan Dibatalkan', 'Perencanaan Dibatalkan'),
+        ('Dalam Masa Pembangunan', 'Dalam Masa Pembangunan'),
+        ('Pembangunan Selesai/Belum Beroperasi', 'Pembangunan Selesai/Belum Beroperasi'),
+        ('Pembangunan Selesai/Sudah Beroperasi', 'Pembangunan Selesai/Sudah Beroperasi'),
+        ('Tutup/Sudah Tidak Beroperasi', 'Tutup/Sudah Tidak Beroperasi')
+    ]
+    DAYS_CHOICES = [
+        ('Setiap Hari', 'Setiap Hari'),
+        ('Senin - Jumat', 'Senin - Jumat'),
+        ('Sabtu - Minggu', 'Sabtu - Minggu')
+    ]
+    SPESIFIC_CHOICES =[
+        ('Perangkat Keamanan Pemerintah Daerah - CCTV','Perangkat Keamanan Pemerintah Daerah- CCTV'),
+        ('Perangkat Keamanan Instansi Vertikal - CCTV','Perangkat Keamanan Instansi Vertikal- CCTV'),
+    ]
+    WILAYAH = [
+        ('Polsek Balaraja', 'Polsek Balaraja'),
+        ('Polsek Kresek', 'Polsek Kresek'),
+        ('Polsek Mauk', 'Polsek Mauk'),
+        ('Polsek Kronjo', 'Polsek Kronjo'),
+        ('Polsek Pasar Kemis', 'Polsek Pasar Kemis'),
+        ('Polsek Tigaraksa', 'Polsek Tigaraksa'),
+        ('Polsek Panongan', 'Polsek Panongan'),
+        ('Polsek Cikupa', 'Polsek Cikupa'),
+        ('Polsek Cisoka', 'Polsek Cisoka'),
+        ('Polresta Tangerang' , 'Polresta Tangerang')
+    ]
+    kode_cam = models.CharField(max_length=50)
+    nama_lokasi = models.TextField(max_length=150, blank=False, null=False)
+    tipe = models.CharField(max_length=50, choices=SPESIFIC_CHOICES, default='Perangkat Keamanan Pemerintah Daerah - CCTV')
+    wilayah = models.CharField(max_length=100, choices=WILAYAH, default='Polresta Tangerang', blank=False, null=False)
+    sn_camera = models.CharField(max_length=100, blank=False, null=False)
+    sn_modem = models.CharField(max_length=100, blank=False, null=False)
+    tgl_pemasangan = models.DateField(auto_now=True)
+    is_active = models.BooleanField(default=False)
+    location = models.PointField(srid=4326, spatial_index=True)
+    photo = models.ImageField(upload_to='local_government_office')
+    operator = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_field = models.DateTimeField(auto_now=True)
