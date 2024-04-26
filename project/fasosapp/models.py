@@ -50,7 +50,7 @@ class MedicalFacility(models.Model) :
     ]
     
     koderumahsakit = models.CharField(max_length=10)
-    nama = models.CharField(max_length=50)
+    nama = models.CharField(max_length=150)
     tipe = models.CharField(max_length=50, choices=TYPE_CHOICES, default='Rumah Sakit')
     jenis = models.CharField(max_length=50, choices=SPESIFIC_CHOICES, default='Rumah Sakit Umum')
     tingkatan = models.CharField(max_length=50, choices=LEVEL_CHOICES, default='Belum Mengisi Tingkatan')
@@ -87,7 +87,7 @@ class LocalGovernmentOffice(models.Model) :
         ('Instansi Vertikal','Instansi Vertikal'),
     ]
     
-    nama = models.CharField(max_length=50)
+    nama = models.CharField(max_length=150)
     tipe = models.CharField(max_length=50, choices=SPESIFIC_CHOICES, default='Perangkat Daerah')
     alamat = models.TextField(max_length=255)
     no_telp = models.CharField(max_length=50)
