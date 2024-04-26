@@ -160,3 +160,18 @@ def local_government_office_list(request):
         'data' : LocalGovernmentOffice.objects.filter(operator = request.user)
     }
     return render(request,'pages/local_government_office_list.html', context)
+
+def local_government_office_form_update(request , pk):
+    objek = get_object_or_404(LocalGovernmentOffice, id=pk)
+    form = LocalGovernmentOfficeForm(request.POST or None, request.FILES or None, instance=objek)
+    
+    if request.method == 'POST':
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.operator = request.user
+            data.save()
+            return redirect('local_government_office_list')
+    context = {
+        'form' : form
+    }
+    return render(request,'pages/local_government_office_update.html', context)
