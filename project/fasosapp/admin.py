@@ -26,5 +26,5 @@ class LocalGovernmentOffice(LocationAdmin):
 @admin.register(CCTVETLE)
 class CCTVETLE(LocationAdmin):
     list_filter = ['is_active', 'operator']
-    list_display = ['id', 'kode_cam', 'polsek', 'is_active', 'tgl_pemasangan', 'operator']
+    list_display = ['id', 'kode_cam', 'nama_lokasi', 'wilayah', 'is_active', 'tgl_pemasangan', 'operator']
 

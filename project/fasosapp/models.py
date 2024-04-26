@@ -99,8 +99,9 @@ class LocalGovernmentOffice(models.Model) :
     operator = models.ForeignKey(User, on_delete=models.CASCADE)
     date_field = models.DateTimeField(auto_now=True)
     
-    class CCTVETLE (models.Model) :
-        STATUS_CHOICES = [
+    
+class CCTVETLE (models.Model) :
+    STATUS_CHOICES = [
         ('Perencanaan/Pengajuan', 'Perencanaan/Pengajuan'),
         ('Dalam Masa Peninjauan', 'Dalam Masa Peninjauan'),
         ('Perencanaan Dibatalkan', 'Perencanaan Dibatalkan'),
@@ -139,6 +140,6 @@ class LocalGovernmentOffice(models.Model) :
     tgl_pemasangan = models.DateField(auto_now=True)
     is_active = models.BooleanField(default=False)
     location = models.PointField(srid=4326, spatial_index=True)
-    photo = models.ImageField(upload_to='local_government_office')
+    photo = models.ImageField(upload_to='cctv_etle')
     operator = models.ForeignKey(User, on_delete=models.CASCADE)
     date_field = models.DateTimeField(auto_now=True)

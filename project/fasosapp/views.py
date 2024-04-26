@@ -174,7 +174,7 @@ def local_government_office_form_update(request , pk):
     context = {
         'form' : form
     }
-    return render(request,'pages/local_government_office_update.html', context)'
+    return render(request,'pages/local_government_office_update.html', context)
 
 def local_government_office_form_delete(request, pk):
     objek = get_object_or_404(LocalGovernmentOffice, id=pk)
@@ -187,4 +187,3 @@ def local_government_office_form_delete(request, pk):
         'form' : form
     }
     return render(request, 'pages/local_government_office_delete.html', context)
-'
