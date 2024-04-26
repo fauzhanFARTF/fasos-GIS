@@ -4,8 +4,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.serializers import serialize  # melakukan serialisasi menghasilkan data geojson / membuat api
 # Model
 from .models import MedicalFacility, LocalGovernmentOffice  # memanggil model
-# Medical Facility Form
-from .forms import MedicalFacilityForm
+# Facility Form
+from .forms import MedicalFacilityForm, LocalGovernmentOfficeForm
 # Http
 from django.http import HttpResponse, JsonResponse  # menghasilkan response dari api
 import ast # untuk mengubah string menjadi dictionary
@@ -134,3 +134,22 @@ def routing_machine(request):
 def standart_opd_api(request):
     data = serialize('geojson',LocalGovernmentOffice.objects.all())
     return HttpResponse(data, content_type="application/json") 
+
+def local_government_office_form_add(request):
+    # pass
+    if request.method == 'POST':
+        form = LocalGovernmentOfficeForm(request.POST, request.FILES)
+        if form.is_valid():
+            # logic for post data
+            data = form.save(commit=False)
+            data.operator = request.user
+            data.save()
+            return redirect('home')
+
+    else :
+        form = LocalGovernmentOfficeForm()
+        
+    context =  {
+       'form' : form 
+    }
+    return render(request,'pages/local_government_office_add.html', context)

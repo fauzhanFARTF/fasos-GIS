@@ -1,6 +1,6 @@
 from django import forms
 from leaflet.forms.widgets import LeafletWidget
-from .models import MedicalFacility
+from .models import MedicalFacility, LocalGovernmentOffice
 
 LEAFLET_WIDGET_ATTRS = {
     'map_height': '500px',
@@ -15,6 +15,7 @@ class MedicalFacilityForm(forms.ModelForm):
         fields = [
             'koderumahsakit',
             'nama',
+            'tipe',
             'jenis',
             'tingkatan',
             'kepemilikan',
@@ -27,3 +28,21 @@ class MedicalFacilityForm(forms.ModelForm):
             'photo'
             ]
         widgets = {'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS)}
+        
+        
+class LocalGovernmentOfficeForm(forms.ModelForm):
+    class Meta:
+        model = LocalGovernmentOffice
+        fields = [
+            'nama',
+            'tipe',
+            'alamat',
+            'no_telp',
+            'status',
+            'hari_beroperasi',
+            'jam_beroperasi',
+            'location',
+            'photo'
+            ]
+        widgets = {'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS)}
+
