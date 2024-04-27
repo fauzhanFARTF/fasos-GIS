@@ -141,7 +141,6 @@ class CCTVETLEFormRead(forms.ModelForm):
             'nama_lokasi',
             'wilayah',
             'location',
-            'photo'
             ]
         widgets = {
             'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS_READ)

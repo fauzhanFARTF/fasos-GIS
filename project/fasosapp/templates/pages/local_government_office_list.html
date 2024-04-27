@@ -57,8 +57,8 @@
                     <td>{{item.hari_beroperasi}}</td>
                     <td>{{item.jam_beroperasi}}</td>
                     <td>
-                        <a href="{% url 'local_government_office_form_update' item.id %}" class="btn btn-sm btn-success">Update</a>
-                        <a href="{% url 'local_government_office_form_delete' item.id %}" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="{% url 'local_government_office_form_update' item.id %}" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'local_government_office_form_delete' item.id %}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
 
                     </td>
                 </tr>

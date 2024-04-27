@@ -23,6 +23,8 @@
                     <th>Nama Lokasi</th>
                     <th>Kode Camera</th>
                     <th>Wilayah</th>
+                    <th>SN Modem</th>
+                    <th>SN Camera</th>
                     <th>Tanggal pemasangan</th>
                     <th>Status Aktif</th>
                     <th>Foto</th>
@@ -35,6 +37,8 @@
                     <td>{{item.nama_lokasi}}</td>
                     <td>{{item.kode_cam}}</td>
                     <td>{{item.wilayah}}</td>
+                    <td>{{item.sn_modem}}</td>
+                    <td>{{item.sn_camera}}</td>
                     <td>{{item.tgl_pemasangan}}</td>
                     <td>
                         {% if item.is_active %} ✅ 
@@ -43,8 +47,8 @@
                     </td>
                     <td><img src="{{item.photo.url}}" alt="{{item.photo}}" width = "130px" height="100px"></td>
                     <td>
-                        <a href="{% url 'cctv_etle_form_update' item.id %}" class="btn btn-sm btn-success">Update</a>
-                        <a href="{% url 'cctv_etle_form_delete' item.id %}" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="{% url 'cctv_etle_form_update' item.id %}" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'cctv_etle_form_delete' item.id %}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
 
                 </tr>
