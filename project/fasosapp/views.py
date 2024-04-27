@@ -198,7 +198,7 @@ def local_government_office_form_delete(request, pk):
 
 def standart_cctv_etle_api(request):
     data = serialize('geojson',CCTVETLE.objects.all())
-    return HttpResponse(data, content_type="json")
+    return HttpResponse(data, content_type="application/json")
 
 def cctv_etle_list(request):
     context = {
