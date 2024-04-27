@@ -176,10 +176,10 @@
                                     }
                                     return L.marker(latlng, {icon: customIcon});
                                 }
-                                }).addTo(map);
+                                })
                 // Marker clustering
-                        // const markers = L.markerClusterGroup().addLayer(lightData);
-                        // map.addLayer(markers);    
+                        const markers = L.markerClusterGroup().addLayer(lightData);
+                        map.addLayer(markers);    
                 });
             }
 
