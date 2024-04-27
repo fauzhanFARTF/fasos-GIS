@@ -132,7 +132,8 @@
     <script>
         $(document).ready( function () {
             $('#myTable').DataTable({
-              "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+              "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+              "order": [[ 1, "desc" ]] // Urutkan kolom pertama
             });
         } );
     </script>
