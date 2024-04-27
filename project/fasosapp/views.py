@@ -191,3 +191,10 @@ def local_government_office_form_delete(request, pk):
 def standart_cctv_etle_api(request):
     data = serialize('geojson',CCTVETLE.objects.all())
     return HttpResponse(data, content_type="json")
+
+def cctv_etle_list(request):
+    context = {
+        # 'data' : MedicalFacility.objects.all()
+        'data' : CCTVETLE.objects.filter(operator = request.user)
+    }
+    return render(request,'pages/cctv_etle_list.html', context)
