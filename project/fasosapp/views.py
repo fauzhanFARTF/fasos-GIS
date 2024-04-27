@@ -5,7 +5,7 @@ from django.core.serializers import serialize  # melakukan serialisasi menghasil
 # Model
 from .models import MedicalFacility, LocalGovernmentOffice, CCTVETLE  # memanggil model
 # Facility Form
-from .forms import MedicalFacilityForm, LocalGovernmentOfficeForm, CCTVETLEForm
+from .forms import MedicalFacilityForm, LocalGovernmentOfficeForm, CCTVETLEForm, CCTVETLEFormRead
 # Http
 from django.http import HttpResponse, JsonResponse  # menghasilkan response dari api
 import ast # untuk mengubah string menjadi dictionary
@@ -235,7 +235,7 @@ def cctv_etle_form_update(request , pk):
 
 def cctv_etle_form_delete(request, pk):
     objek = get_object_or_404(CCTVETLE, id=pk)
-    form = CCTVETLEForm(request.POST or None, request.FILES or None, instance=objek)
+    form = CCTVETLEFormRead(request.POST or None, request.FILES or None, instance=objek)
     
     if request.method == 'POST':
         objek.delete()
@@ -244,3 +244,4 @@ def cctv_etle_form_delete(request, pk):
         'form' : form
     }
     return render(request, 'pages/cctv_etle_delete.html', context)
+

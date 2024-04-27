@@ -5,6 +5,8 @@
 {% block title %}
     Pembaharuan CCTV Electronic Traffic Law Enforcement (CCTV-ETLE) di Kabupaten Tangerang
 {% endblock %}
+        
+    {% load static %}
 
 {% block head %}
    {% leaflet_css plugins="forms" %}
@@ -16,7 +18,7 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form | crispy }}
-            <input type="submit" class="btn btn-success"/>
+            <input type="submit" class="btn btn-success" value="Update"/>
         </form>
     </div>
     {% leaflet_js plugins="forms" %}

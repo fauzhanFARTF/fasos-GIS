@@ -6,6 +6,8 @@
     Tambah Kantor Perangkat Daerah
 {% endblock %}
 
+        {% load static %}
+        
 {% block head %}
    {% leaflet_css plugins="forms" %}
 {% endblock %}
@@ -16,7 +18,7 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form | crispy }}
-            <input type="submit" class="btn btn-primary"/>
+            <input type="submit" class="btn btn-primary" value="Tambah"/>
         </form>
     </div>
     

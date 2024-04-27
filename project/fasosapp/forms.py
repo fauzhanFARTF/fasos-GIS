@@ -9,6 +9,13 @@ LEAFLET_WIDGET_ATTRS = {
     'map_srid': 4326,
     'auto-include': True
 }
+LEAFLET_WIDGET_ATTRS_READ = {
+    'map_height': '500px',
+    'map_width': '100%',
+    'map_srid': 4326,
+    'auto-include': True,
+    'minimap': True
+}
 
 class MedicalFacilityForm(forms.ModelForm):
     class Meta:
@@ -51,7 +58,7 @@ today = date.today()
  
 class CCTVETLEForm(forms.ModelForm):
     # target_Date = forms.DateField(widget=forms.TextInput(attrs={'min': today, 'value': today, 'type': 'date'}), required=True)
-    # tgl_pemasangan = forms.DateField(widget=forms.TextInput(attrs={'value': today, 'type': 'date'}), required=True)
+    tgl_pemasangan = forms.DateField(widget=forms.TextInput(attrs={'value': today, 'type': 'date'}), required=True)
 
     class Meta:
         model = CCTVETLE
@@ -67,3 +74,28 @@ class CCTVETLEForm(forms.ModelForm):
             'photo'
             ]
         widgets = {'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS)}
+
+class CCTVETLEFormRead(forms.ModelForm):
+    # target_Date = forms.DateField(widget=forms.TextInput(attrs={'min': today, 'value': today, 'type': 'date'}), required=True)
+    # tgl_pemasangan = forms.DateField(widget=forms.TextInput(attrs={'value': today, 'type': 'date'}), required=True)
+    kode_cam = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    nama_lokasi = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    wilayah = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    class Meta:
+        model = CCTVETLE
+        exclude = [
+            'sn_camera',
+            'sn_modem',
+            'tgl_pemasangan',
+            'is_active',   
+        ]
+        fields = [
+            'kode_cam',
+            'nama_lokasi',
+            'wilayah',
+            'location',
+            'photo'
+            ]
+        widgets = {
+            'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS_READ)
+        }
