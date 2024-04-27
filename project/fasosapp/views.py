@@ -9,6 +9,8 @@ from .forms import MedicalFacilityForm, LocalGovernmentOfficeForm, CCTVETLEForm,
 # Http
 from django.http import HttpResponse, JsonResponse  # menghasilkan response dari api
 import ast # untuk mengubah string menjadi dictionary
+from django.contrib import messages
+
 # Form MedicalFacility
 
 # Create your views here.
@@ -79,6 +81,7 @@ def medical_facility_form_add(request):
             data = form.save(commit=False)
             data.operator = request.user
             data.save()
+            messages.success(request,"Tambah Data Berhasil")
             return redirect('home')
 
     else :
@@ -108,6 +111,7 @@ def medical_facility_form_update(request , pk):
             data = form.save(commit=False)
             data.operator = request.user
             data.save()
+            messages.success(request,"Ubah Data Berhasil")
             return redirect('medical_facility_list')
     context = {
         'form' : form
@@ -121,6 +125,7 @@ def medical_facility_form_delete(request, pk):
     
     if request.method == 'POST':
         objek.delete()
+        messages.success(request,"Hapus Data Berhasil")
         return redirect('medical_facility_list')
     context = {
         'form' : form
@@ -144,6 +149,7 @@ def local_government_office_form_add(request):
             data = form.save(commit=False)
             data.operator = request.user
             data.save()
+            messages.success(request,"Tambah Data Berhasil")
             return redirect('home')
 
     else :
@@ -170,6 +176,7 @@ def local_government_office_form_update(request , pk):
             data = form.save(commit=False)
             data.operator = request.user
             data.save()
+            messages.success(request,"Ubah Data Berhasil")
             return redirect('local_government_office_list')
     context = {
         'form' : form
@@ -182,6 +189,7 @@ def local_government_office_form_delete(request, pk):
     
     if request.method == 'POST':
         objek.delete()
+        messages.success(request,"Hapus Data Berhasil")
         return redirect('local_government_office_list')
     context = {
         'form' : form
@@ -208,6 +216,7 @@ def cctv_etle_form_add(request):
             data = form.save(commit=False)
             data.operator = request.user
             data.save()
+            messages.success(request,"Tambah Data Berhasil")
             return redirect('home')
 
     else :
@@ -227,6 +236,7 @@ def cctv_etle_form_update(request , pk):
             data = form.save(commit=False)
             data.operator = request.user
             data.save()
+            messages.success(request,"Ubah Data Berhasil")
             return redirect('cctv_etle_list')
     context = {
         'form' : form
@@ -239,6 +249,7 @@ def cctv_etle_form_delete(request, pk):
     
     if request.method == 'POST':
         objek.delete()
+        messages.success(request,"Hapus Data Berhasil")
         return redirect('cctv_etle_list')
     context = {
         'form' : form

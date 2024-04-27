@@ -66,6 +66,22 @@
 
   <body class="container-fluid">
     {% include 'context/navbar.html' %}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+
+    <div id="swall">
+        {% if messages %}
+          {% for m in messages %}
+            <script>
+              Swal.fire({
+                title: "Berhasil!",
+                text: "{{m}}!",
+                icon: "success"
+              });
+            </script>
+          {% endfor %}
+        {% endif %}
+        {% block swal %}{% endblock%}
+    </div>
     <!-- BOOSTRAP CDN
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.js"></script>
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
