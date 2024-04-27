@@ -143,3 +143,10 @@ class CCTVETLE (models.Model) :
     photo = models.ImageField(upload_to='cctv_etle')
     operator = models.ForeignKey(User, on_delete=models.CASCADE)
     date_field = models.DateTimeField(auto_now=True)
+    
+class BatasKecamatan (models.Model) :
+    kecamatan = models.CharField(max_length=150)
+    kd_kcmtan = models.CharField(max_length=20)
+    geom = models.PolygonField(srid=4326, spatial_index=True)
+    operator = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_field = models.DateTimeField(auto_now=True)

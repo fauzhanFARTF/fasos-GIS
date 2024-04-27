@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 # Serializer
 from django.core.serializers import serialize  # melakukan serialisasi menghasilkan data geojson / membuat api
 # Model
-from .models import MedicalFacility, LocalGovernmentOffice, CCTVETLE  # memanggil model
+from .models import MedicalFacility, LocalGovernmentOffice, CCTVETLE, BatasKecamatan  # memanggil model
 # Facility Form
 from .forms import MedicalFacilityForm, LocalGovernmentOfficeForm, CCTVETLEForm, CCTVETLEFormRead, MedicalFacilityFormRead, LocalGovernmentOfficeFormRead
 # Http
@@ -256,3 +256,6 @@ def cctv_etle_form_delete(request, pk):
     }
     return render(request, 'pages/cctv_etle_delete.html', context)
 
+def batas_kecamatan_api(request):
+    data = serialize('geojson',BatasKecamatan.objects.all())
+    return HttpResponse(data, content_type="json") 
