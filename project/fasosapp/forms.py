@@ -37,6 +37,33 @@ class MedicalFacilityForm(forms.ModelForm):
             ]
         widgets = {'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS)}
         
+class MedicalFacilityFormRead(forms.ModelForm):
+    koderumahsakit = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    nama = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    jenis = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    alamat = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    class Meta:
+        model = MedicalFacility
+        exclude = [
+            'tipe',
+            'tingkatan',
+            'kepemilikan',
+            'is_active',
+            'no_telp',
+            'status',
+            'hari_beroperasi',
+            'jam_beroperasi',
+            'photo'
+        ]
+        fields = [
+            'koderumahsakit',
+            'nama',
+            'jenis',
+            'alamat',
+            'location'
+            ]
+        widgets = {'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS)}
+        
         
 class LocalGovernmentOfficeForm(forms.ModelForm):
     class Meta:
