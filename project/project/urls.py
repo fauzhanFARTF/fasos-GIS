@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/standart-faskes-api/', standart_faskes_api, name='standart_faskes_api'),
     path('api/standart-opd-api/', standart_opd_api, name='standart_opd_api'),
     path('api/cctv-etle-api/', standart_cctv_etle_api, name='standart_cctv_etle_api'),
+    path('api/batas-kecamatan-api/', batas_kecamatan_api , name='batas_kecamatan_api'),
     path('medical_facility/add/', medical_facility_form_add, name='medical_facility_form_add'),
     path('medical_facility/', medical_facility_list, name='medical_facility_list'),
     path('medical_facility/update/<int:pk>/', medical_facility_form_update, name='medical_facility_form_update'),
@@ -41,7 +42,6 @@ urlpatterns = [
     path('cctv_etle/add/', cctv_etle_form_add, name='cctv_etle_form_add'),
     path('cctv_etle/update/<int:pk>/', cctv_etle_form_update, name='cctv_etle_form_update'),
     path('cctv_etle/delete/<int:pk>/', cctv_etle_form_delete, name='cctv_etle_form_delete'),
-    path('api/batas-kecamatan-api/', batas_kecamatan_api , name='batas_kecamatan_api'),
 
     path('routing_machine/', routing_machine , name='routing_machine'),
     

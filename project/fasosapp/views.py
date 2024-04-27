@@ -258,4 +258,4 @@ def cctv_etle_form_delete(request, pk):
 
 def batas_kecamatan_api(request):
     data = serialize('geojson',BatasKecamatan.objects.all())
-    return HttpResponse(data, content_type="json") 
+    return HttpResponse(data, content_type="application/json") 
