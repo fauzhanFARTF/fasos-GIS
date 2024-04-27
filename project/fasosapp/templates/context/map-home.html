@@ -3,7 +3,8 @@
         const urls = [
             '{% url "standart_faskes_api" %}',
             '{% url "standart_opd_api" %}',
-            '{% url "standart_cctv_etle_api" %}'
+            '{% url "standart_cctv_etle_api" %}',
+            '{% url "batas_kecamatan_api" %}'
         ];
 
         function addDataToMap(responseData, map) {
@@ -14,7 +15,29 @@
             responseData.forEach(data => {
                         console.log(data); // Untuk debugging, periksa struktur data
                         const lightData = L.geoJSON(data, {
+                                style: function (feature) {
+                                    return {
+                                        color: 'red',
+                                        weight: 1,
+                                        dashArray: 3, 
+                                        fillColor: 'red', 
+                                        fillOpacity: 0.2,
+                                        Opacity: 0.55
+                                    }
+                                },
                                 onEachFeature: function(feature, layer) {
+                                    layer.on('mouseover', function () {
+                                        this.setStyle({
+                                            color: 'yellow',
+                                            fillColor: 'yellow'
+                                        });
+                                    })
+                                    layer.on('mouseout', function () {
+                                        this.setStyle({
+                                            color: 'red',
+                                            fillColor: 'red'
+                                        });
+                                    });
                                     if (feature.properties.tipe === 'Rumah Sakit') {
                                         const popupContent =
                                         `
@@ -140,6 +163,29 @@
                                                     <tr>
                                                         <td>Serial Number Modem</td>
                                                         <td>${feature.properties.sn_modem}</td>
+                                                    </tr>
+                                        `
+                                        layer.bindPopup(popupContent);
+                                    } else {
+                                        const popupContent =
+                                        `
+                                            <h5 class = "text-primary"> ${feature.properties.kecamatan}</h5>
+                                            <div class="container">
+                                                <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Properti</th>
+                                                        <th>Keterangan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Kode Kecamatan </td>
+                                                        <td>${feature.properties.kd_kcmtan}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kecamatan</td>
+                                                        <td>${feature.properties.kecamatan}</td>
                                                     </tr>
                                         `
                                         layer.bindPopup(popupContent);
