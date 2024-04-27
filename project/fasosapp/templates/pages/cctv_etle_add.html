@@ -1,0 +1,24 @@
+{% extends 'context/base.html' %}
+{% load leaflet_tags %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Tambah Kantor Perangkat Daerah
+{% endblock %}
+
+{% block head %}
+   {% leaflet_css plugins="forms" %}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h3>Menambahkan Perangkat CCTV Electronic Traffic Law Enforcement (CCTV-ETLE) </h3>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <input type="submit" class="btn btn-primary"/>
+        </form>
+    </div>
+    
+    {% leaflet_js plugins="forms" %}
+{% endblock %}

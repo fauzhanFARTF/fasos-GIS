@@ -1,6 +1,7 @@
 from django import forms
 from leaflet.forms.widgets import LeafletWidget
-from .models import MedicalFacility, LocalGovernmentOffice
+from .models import MedicalFacility, LocalGovernmentOffice, CCTVETLE
+from datetime import date
 
 LEAFLET_WIDGET_ATTRS = {
     'map_height': '500px',
@@ -8,6 +9,8 @@ LEAFLET_WIDGET_ATTRS = {
     'map_srid': 4326,
     'auto-include': True
 }
+
+today = date.today()
 
 class MedicalFacilityForm(forms.ModelForm):
     class Meta:
@@ -45,4 +48,24 @@ class LocalGovernmentOfficeForm(forms.ModelForm):
             'photo'
             ]
         widgets = {'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS)}
+    
+class CCTVETLEForm(forms.ModelForm):
+    # target_Date = forms.DateField(widget=forms.TextInput(attrs={'min': today, 'value': today, 'type': 'date'}), required=True)
+    tgl_pemasangan = forms.DateField(widget=forms.TextInput(attrs={'value': today, 'type': 'date'}), required=True)
+
+    class Meta:
+        model = CCTVETLE
+        fields = [
+            'kode_cam',
+            'nama_lokasi',
+            'wilayah',
+            'sn_camera',
+            'sn_modem',
+            'is_active',
+            'location',
+            'photo'
+            ]
+        widgets = {'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS)}
+
+
 

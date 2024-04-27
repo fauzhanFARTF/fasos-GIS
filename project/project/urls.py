@@ -18,7 +18,7 @@ from django.urls import path, include
 from fasosapp.views import home
 from django.conf import settings
 from django.conf.urls.static import static
-from fasosapp.views import home , faskes_api, custom_api, custom_faskes_api, standart_faskes_api, medical_facility_form_add, medical_facility_list, medical_facility_form_update, medical_facility_form_delete, standart_opd_api, local_government_office_form_add,routing_machine,local_government_office_list, local_government_office_form_update, local_government_office_form_delete,standart_cctv_etle_api, cctv_etle_list
+from fasosapp.views import home , faskes_api, custom_api, custom_faskes_api, standart_faskes_api, medical_facility_form_add, medical_facility_list, medical_facility_form_update, medical_facility_form_delete, standart_opd_api, local_government_office_form_add,routing_machine,local_government_office_list, local_government_office_form_update, local_government_office_form_delete,standart_cctv_etle_api, cctv_etle_list, cctv_etle_form_add
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,6 +38,7 @@ urlpatterns = [
     path('local_government_office/update/<int:pk>/', local_government_office_form_update, name='local_government_office_form_update'),
     path('local_government_office/delete/<int:pk>/', local_government_office_form_delete, name='local_government_office_form_delete'),
     path('cctv-etle/', cctv_etle_list, name='cctv_etle_list'),
+    path('cctv_etle/add/', cctv_etle_form_add, name='cctv_etle_form_add'),
 
     path('routing_machine/', routing_machine , name='routing_machine'),
     

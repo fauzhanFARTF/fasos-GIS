@@ -5,7 +5,7 @@ from django.core.serializers import serialize  # melakukan serialisasi menghasil
 # Model
 from .models import MedicalFacility, LocalGovernmentOffice, CCTVETLE  # memanggil model
 # Facility Form
-from .forms import MedicalFacilityForm, LocalGovernmentOfficeForm
+from .forms import MedicalFacilityForm, LocalGovernmentOfficeForm, CCTVETLEForm
 # Http
 from django.http import HttpResponse, JsonResponse  # menghasilkan response dari api
 import ast # untuk mengubah string menjadi dictionary
@@ -198,3 +198,22 @@ def cctv_etle_list(request):
         'data' : CCTVETLE.objects.filter(operator = request.user)
     }
     return render(request,'pages/cctv_etle_list.html', context)
+
+def cctv_etle_form_add(request):
+    # pass
+    if request.method == 'POST':
+        form = CCTVETLEForm(request.POST, request.FILES)
+        if form.is_valid():
+            # logic for post data
+            data = form.save(commit=False)
+            data.operator = request.user
+            data.save()
+            return redirect('home')
+
+    else :
+        form = CCTVETLEForm()
+        
+    context =  {
+       'form' : form 
+    }
+    return render(request,'pages/cctv_etle_add.html', context)
