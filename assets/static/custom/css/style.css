@@ -14,9 +14,7 @@ body{
     width: 100%;
     background: #EEECEB;
 }
-.container {
-  padding-bottom: 50px;
-}
+
 footer{
     position: relative;
     background: rgb(2,0,36);
@@ -24,6 +22,7 @@ footer{
     width: 100%;
     bottom: 0;
     left: 0;
+    margin-top: 50px;
 }
 footer::before{
   content: '';
@@ -77,9 +76,7 @@ footer .content .top{
 #map {
     height :1000px;
 }
-.container {
-    padding-top: 30px;
-}
+
 .row {
     padding-top: 20px;
 }
@@ -242,4 +239,7 @@ footer .bottom-details .bottom_text{
 #navbar-title{
   color: white;
   font-size: 25px;
+}
+nav{
+  margin-bottom: 30px;
 }

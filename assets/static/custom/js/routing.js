@@ -16,8 +16,8 @@
             language: 'id' 
         }),
         waypoints: [
-            L.latLng(-6.222045, 106.560920),
-            L.latLng(-6.197103, 106.439644)
+            L.latLng(-6.222281, 106.560478),
+            L.latLng(-6.270123, 106.484379)
         ],
         geocoder: L.Control.Geocoder.nominatim(),
         routeWhileDragging: true,
