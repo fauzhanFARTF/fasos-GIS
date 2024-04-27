@@ -131,13 +131,13 @@ class CCTVETLE (models.Model) :
         ('Polsek Cisoka', 'Polsek Cisoka'),
         ('Polresta Tangerang' , 'Polresta Tangerang')
     ]
-    kode_cam = models.CharField(max_length=50)
+    kode_cam = models.CharField(max_length=50, blank=False, null=False)
     nama_lokasi = models.TextField(max_length=150, blank=False, null=False)
     tipe = models.CharField(max_length=50, choices=SPESIFIC_CHOICES, default='Perangkat Keamanan Pemerintah Daerah - CCTV')
     wilayah = models.CharField(max_length=100, choices=WILAYAH, default='Polresta Tangerang', blank=False, null=False)
     sn_camera = models.CharField(max_length=100, blank=False, null=False)
     sn_modem = models.CharField(max_length=100, blank=False, null=False)
-    tgl_pemasangan = models.DateField(auto_now=True)
+    tgl_pemasangan = models.DateField()
     is_active = models.BooleanField(default=False)
     location = models.PointField(srid=4326, spatial_index=True)
     photo = models.ImageField(upload_to='cctv_etle')

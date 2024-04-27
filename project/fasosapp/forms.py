@@ -10,8 +10,6 @@ LEAFLET_WIDGET_ATTRS = {
     'auto-include': True
 }
 
-today = date.today()
-
 class MedicalFacilityForm(forms.ModelForm):
     class Meta:
         model = MedicalFacility
@@ -48,10 +46,12 @@ class LocalGovernmentOfficeForm(forms.ModelForm):
             'photo'
             ]
         widgets = {'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS)}
-    
+   
+today = date.today()
+ 
 class CCTVETLEForm(forms.ModelForm):
     # target_Date = forms.DateField(widget=forms.TextInput(attrs={'min': today, 'value': today, 'type': 'date'}), required=True)
-    tgl_pemasangan = forms.DateField(widget=forms.TextInput(attrs={'value': today, 'type': 'date'}), required=True)
+    # tgl_pemasangan = forms.DateField(widget=forms.TextInput(attrs={'value': today, 'type': 'date'}), required=True)
 
     class Meta:
         model = CCTVETLE
@@ -61,11 +61,9 @@ class CCTVETLEForm(forms.ModelForm):
             'wilayah',
             'sn_camera',
             'sn_modem',
+            'tgl_pemasangan',
             'is_active',
             'location',
             'photo'
             ]
         widgets = {'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS)}
-
-
-

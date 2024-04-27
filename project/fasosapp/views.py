@@ -217,3 +217,18 @@ def cctv_etle_form_add(request):
        'form' : form 
     }
     return render(request,'pages/cctv_etle_add.html', context)
+
+def cctv_etle_form_update(request , pk):
+    objek = get_object_or_404(CCTVETLE, id=pk)
+    form = CCTVETLEForm(request.POST or None, request.FILES or None, instance=objek)
+    
+    if request.method == 'POST':
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.operator = request.user
+            data.save()
+            return redirect('cctv_etle_list')
+    context = {
+        'form' : form
+    }
+    return render(request,'pages/cctv_etle_update.html', context)
