@@ -16,22 +16,24 @@
       <div class="link-boxes">
         <ul class="box">
           <li class="link_name">Profil</li>
-          <li><a href="#">Beranda</a></li>
-          <li><a href="#">Kontak Kami</a></li>
-          <li><a href="#">Tentang Kita</a></li>
+          <li><a href="{% url 'home' %}">Beranda</a></li>
+          <li><a href="{% url 'home' %}">Kontak Kami</a></li>
+          <li><a href="{% url 'medical_facility_list'%}">Fasilitas Kesehatan List</a></li>
+          <li><a href="{% url 'local_government_office_list'%}">Fasilitas Perangkat Daerah List</a></li>
+          <li><a href="{% url 'cctv_etle_list'%}">Fasilitas Perangkat Keamanan - CCTV List</a></li>
         </ul>
-        <ul class="box">
+        <!-- <ul class="box">
           <li class="link_name">Fasilitas yang dikelola</li>
           <li><a href="#">Fasilitas Kesehatan</a></li>
           <li><a href="#">Fasilitas Perangkat Daerah</a></li>
           <li><a href="#">Fasilitas CCTV</a></li>
           <li><a href="#">Batas Administrasi Kecamatan</a></li>
-        </ul>
+        </ul> -->
         <ul class="box">
           <li class="link_name">Services API</li>
-          <li><a href="#">Fasilitas Kesehatan</a></li>
-          <li><a href="#">Fasilitas Perangkat Daerah</a></li>
-          <li><a href="#">Fasilitas CCTV</a></li>
+          <li><a href="{% url 'standart_faskes_api'%}">Fasilitas Kesehatan</a></li>
+          <li><a href="{% url 'standart_opd_api'%}">Fasilitas Perangkat Daerah</a></li>
+          <li><a href="{% url 'standart_cctv_etle_api'%}">Fasilitas CCTV</a></li>
           <li><a href="#">Batas Administrasi Kecamatan</a></li>
         </ul>
         <!-- <ul class="box">
