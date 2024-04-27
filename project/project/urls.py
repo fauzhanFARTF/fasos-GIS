@@ -18,7 +18,7 @@ from django.urls import path, include
 from fasosapp.views import home
 from django.conf import settings
 from django.conf.urls.static import static
-from fasosapp.views import home , faskes_api, custom_api, custom_faskes_api, standart_faskes_api, medical_facility_form_add, medical_facility_list, medical_facility_form_update, medical_facility_form_delete, standart_opd_api, local_government_office_form_add,routing_machine,local_government_office_list, local_government_office_form_update, local_government_office_form_delete
+from fasosapp.views import home , faskes_api, custom_api, custom_faskes_api, standart_faskes_api, medical_facility_form_add, medical_facility_list, medical_facility_form_update, medical_facility_form_delete, standart_opd_api, local_government_office_form_add,routing_machine,local_government_office_list, local_government_office_form_update, local_government_office_form_delete,standart_cctv_etle_api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/custom-faskes-api/', custom_faskes_api, name='custom_faskes_api'),
     path('api/standart-faskes-api/', standart_faskes_api, name='standart_faskes_api'),
     path('api/standart-opd-api/', standart_opd_api, name='standart_opd_api'),
+    path('api/cctv-etle-api/', standart_cctv_etle_api, name='standart_cctv_etle_api'),
     path('medical_facility/add/', medical_facility_form_add, name='medical_facility_form_add'),
     path('medical_facility/', medical_facility_list, name='medical_facility_list'),
     path('medical_facility/update/<int:pk>/', medical_facility_form_update, name='medical_facility_form_update'),
@@ -36,7 +37,6 @@ urlpatterns = [
     path('local_government_office/', local_government_office_list, name='local_government_office_list'),
     path('local_government_office/update/<int:pk>/', local_government_office_form_update, name='local_government_office_form_update'),
     path('local_government_office/delete/<int:pk>/', local_government_office_form_delete, name='local_government_office_form_delete'),
-
 
     path('routing_machine/', routing_machine , name='routing_machine'),
     
