@@ -6,7 +6,11 @@
     Delete Kantor Perangkat Daerah
 {% endblock %}
 
-{% block head %}{% endblock %}
+    {% load static %}
+
+{% block head %}
+   {% leaflet_css plugins="forms" %}
+{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -14,7 +18,7 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <input type="submit" class="btn btn-danger"/>
+                <input type="submit" class="btn btn-danger" value="Hapus"/>
             </form>
     </div>
     {% leaflet_js plugins="forms" %}

@@ -14,7 +14,6 @@ LEAFLET_WIDGET_ATTRS_READ = {
     'map_width': '100%',
     'map_srid': 4326,
     'auto-include': True,
-    'minimap': True
 }
 
 class MedicalFacilityForm(forms.ModelForm):
@@ -78,6 +77,27 @@ class LocalGovernmentOfficeForm(forms.ModelForm):
             'jam_beroperasi',
             'location',
             'photo'
+            ]
+        widgets = {'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS)}
+
+class LocalGovernmentOfficeFormRead(forms.ModelForm):
+    nama = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    tipe = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    alamat = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    class Meta:
+        model = LocalGovernmentOffice
+        exclude = [           
+            'no_telp',
+            'status',
+            'hari_beroperasi',
+            'jam_beroperasi',
+            'photo'         
+        ]
+        fields = [
+            'nama',
+            'tipe',
+            'alamat',
+            'location'
             ]
         widgets = {'location': LeafletWidget(attrs=LEAFLET_WIDGET_ATTRS)}
    

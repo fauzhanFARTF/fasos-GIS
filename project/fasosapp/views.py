@@ -5,7 +5,7 @@ from django.core.serializers import serialize  # melakukan serialisasi menghasil
 # Model
 from .models import MedicalFacility, LocalGovernmentOffice, CCTVETLE  # memanggil model
 # Facility Form
-from .forms import MedicalFacilityForm, LocalGovernmentOfficeForm, CCTVETLEForm, CCTVETLEFormRead, MedicalFacilityFormRead
+from .forms import MedicalFacilityForm, LocalGovernmentOfficeForm, CCTVETLEForm, CCTVETLEFormRead, MedicalFacilityFormRead, LocalGovernmentOfficeFormRead
 # Http
 from django.http import HttpResponse, JsonResponse  # menghasilkan response dari api
 import ast # untuk mengubah string menjadi dictionary
@@ -185,7 +185,7 @@ def local_government_office_form_update(request , pk):
 
 def local_government_office_form_delete(request, pk):
     objek = get_object_or_404(LocalGovernmentOffice, id=pk)
-    form = LocalGovernmentOfficeForm(request.POST or None, request.FILES or None, instance=objek)
+    form = LocalGovernmentOfficeFormRead(request.POST or None, request.FILES or None, instance=objek)
     
     if request.method == 'POST':
         objek.delete()
