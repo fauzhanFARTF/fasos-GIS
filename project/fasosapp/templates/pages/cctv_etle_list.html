@@ -42,7 +42,7 @@
                     <td><img src="{{item.photo.url}}" alt="{{item.photo}}" width = "130px" height="100px"></td>
                     <td>
                         <a href="{% url 'cctv_etle_form_update' item.id %}" class="btn btn-sm btn-success">Update</a>
-                        <a href="" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="{% url 'cctv_etle_form_delete' item.id %}" class="btn btn-sm btn-danger">Delete</a>
                     </td>
 
                 </tr>

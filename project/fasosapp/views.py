@@ -232,3 +232,15 @@ def cctv_etle_form_update(request , pk):
         'form' : form
     }
     return render(request,'pages/cctv_etle_update.html', context)
+
+def cctv_etle_form_delete(request, pk):
+    objek = get_object_or_404(CCTVETLE, id=pk)
+    form = CCTVETLEForm(request.POST or None, request.FILES or None, instance=objek)
+    
+    if request.method == 'POST':
+        objek.delete()
+        return redirect('cctv_etle_list')
+    context = {
+        'form' : form
+    }
+    return render(request, 'pages/cctv_etle_delete.html', context)
