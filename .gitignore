@@ -169,3 +169,5 @@ leaflet-providers
 leaflet-routing-machine-3.2.12
 lrm-graphhopper
 graphhopper-maps
+leaflet-sidebar
+leaflet-panel-layers
